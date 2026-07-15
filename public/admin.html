@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel — Dream Traveler Planner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="stars"></div>
+
+<nav class="navbar">
+  <div class="nav-left">✈️ <strong>Dream Traveler Planner</strong> <span class="admin-pill">ADMIN</span></div>
+  <div class="nav-right">
+    <a href="index.html" class="nav-link">My Planner</a>
+    <span id="navUserName" class="nav-user"></span>
+    <button class="btn ghost small" id="logoutBtn">Logout</button>
+  </div>
+</nav>
+
+<header class="topbar small-top">
+  <h1>🛡️ Admin Panel</h1>
+  <p class="tagline">Manage all registered users and every dream destination in the system</p>
+</header>
+
+<section class="stats-bar" id="statsBar">
+  <div class="stat-card">
+    <span class="stat-num" id="statUsers">0</span>
+    <span class="stat-label">Registered Users</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-num" id="statTotal">0</span>
+    <span class="stat-label">Total Destinations</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-num" id="statVisited">0</span>
+    <span class="stat-label">Visited</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-num" id="statBudget">$0</span>
+    <span class="stat-label">Total Budget (All Users)</span>
+  </div>
+</section>
+
+<main class="admin-main">
+  <section class="admin-section">
+    <h2>👥 Registered Users</h2>
+    <div class="table-wrap">
+      <table class="admin-table" id="usersTable">
+        <thead>
+          <tr><th>Name</th><th>Email</th><th>Role</th><th>Joined</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="admin-section">
+    <h2>🌍 All Dream Destinations</h2>
+    <div class="table-wrap">
+      <table class="admin-table" id="destTable">
+        <thead>
+          <tr><th>Destination</th><th>Owner</th><th>Country</th><th>Status</th><th>Budget</th><th>Target Date</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div id="toastContainer" class="toast-container"></div>
+
+<script src="admin.js"></script>
+</body>
+</html>

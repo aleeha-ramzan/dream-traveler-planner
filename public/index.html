@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dream Traveler Planner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="stars"></div>
+
+<nav class="navbar">
+  <div class="nav-left">✈️ <strong>Dream Traveler Planner</strong></div>
+  <div class="nav-right">
+    <a href="admin.html" id="adminLink" class="nav-link" style="display:none;">Admin Panel</a>
+    <span id="navUserName" class="nav-user"></span>
+    <button class="btn ghost small" id="logoutBtn">Logout</button>
+  </div>
+</nav>
+
+<header class="topbar">
+  <h1>✈️ Dream Traveler Planner</h1>
+  <p class="tagline">Plan the trips you dream about — one destination at a time</p>
+</header>
+
+<section class="stats-bar" id="statsBar">
+  <div class="stat-card">
+    <span class="stat-num" id="statTotal">0</span>
+    <span class="stat-label">Total</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-num" id="statPlanned">0</span>
+    <span class="stat-label">Planned</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-num" id="statBooked">0</span>
+    <span class="stat-label">Booked</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-num" id="statVisited">0</span>
+    <span class="stat-label">Visited</span>
+  </div>
+  <div class="stat-card">
+    <span class="stat-num" id="statBudget">$0</span>
+    <span class="stat-label">Total Budget</span>
+  </div>
+</section>
+
+<section class="controls">
+  <button class="btn primary" id="openAddBtn">+ Add Dream Destination</button>
+  <div class="filters">
+    <select id="filterStatus">
+      <option value="">All Status</option>
+      <option value="Planned">Planned</option>
+      <option value="Booked">Booked</option>
+      <option value="Visited">Visited</option>
+    </select>
+    <input type="text" id="filterCountry" placeholder="Filter by country...">
+  </div>
+</section>
+
+<main id="cardsGrid" class="cards-grid">
+  <!-- Destination cards injected by JS -->
+</main>
+
+<p class="empty-msg" id="emptyMsg" style="display:none;">No dream destinations yet. Add your first one! 🌍</p>
+
+<!-- Add/Edit Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h2 id="modalTitle">Add Dream Destination</h2>
+    <form id="destForm">
+      <input type="hidden" id="destId">
+      <label>Destination Name</label>
+      <input type="text" id="name" required placeholder="e.g. Santorini">
+
+      <label>Country</label>
+      <input type="text" id="country" required placeholder="e.g. Greece">
+
+      <label>Description</label>
+      <textarea id="description" placeholder="Why is this a dream destination?"></textarea>
+
+      <label>Image URL</label>
+      <input type="text" id="image" placeholder="https://...">
+
+      <div class="form-row">
+        <div>
+          <label>Estimated Budget ($)</label>
+          <input type="number" id="estimatedBudget" min="0" value="0">
+        </div>
+        <div>
+          <label>Priority</label>
+          <select id="priority">
+            <option value="Low">Low</option>
+            <option value="Medium" selected>Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div>
+          <label>Status</label>
+          <select id="status">
+            <option value="Planned">Planned</option>
+            <option value="Booked">Booked</option>
+            <option value="Visited">Visited</option>
+          </select>
+        </div>
+        <div>
+          <label>Target Date</label>
+          <input type="date" id="targetDate">
+        </div>
+      </div>
+
+      <label>Notes</label>
+      <textarea id="notes" placeholder="Any extra notes..."></textarea>
+
+      <div class="modal-actions">
+        <button type="button" class="btn ghost" id="cancelBtn">Cancel</button>
+        <button type="submit" class="btn primary" id="saveBtn">Save Destination</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="toastContainer" class="toast-container"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
